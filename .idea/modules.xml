@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ScalaHackerRankAssignment.iml" filepath="$PROJECT_DIR$/.idea/modules/ScalaHackerRankAssignment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ScalaHackerRankAssignment-build.iml" filepath="$PROJECT_DIR$/.idea/modules/ScalaHackerRankAssignment-build.iml" />
     </modules>
   </component>
 </project>
