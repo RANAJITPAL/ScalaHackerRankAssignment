@@ -13,6 +13,7 @@ object CaptainPrime {
     }
   }
 
+  //getting the persion's position
   def getPosition(num: Int, isPrime: Array[Boolean]): String = {
     var numLeft: Int = num
     var numRight: Int = num
@@ -50,6 +51,7 @@ object CaptainPrime {
   }
 
 
+  //getting all the prime numbers
   def getPrimeNumbers(num: Int): Array[Boolean] = {
     var isPrime: Array[Boolean] = Array.fill(num + 1)(true)
     for (i <- 2 to num; if i * i <= num) {
