@@ -25,12 +25,14 @@ object BangaloreBank {
     println(ans + n)
   }
 
+  //finding the distance between two key
   def getDistance(a: Int, b: Int): Int = {
     var aa = if (a == 0) 10 else a
     var bb = if (b == 0) 10 else b
     math.abs(aa - bb)
   }
 
+  //creating the DP table
   def solve(k: Int, x: Int, y: Int): Int = {
     if (k == n) return 0
     if (dp(k)(x)(y) != -1) return dp(k)(x)(y);
