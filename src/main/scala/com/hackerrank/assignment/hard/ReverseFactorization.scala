@@ -5,7 +5,6 @@ import scala.io.StdIn.{readInt, readLine}
 
 object ReverseFactorization {
   def main(args: Array[String]): Unit = {
-    //
     var num: Int = readInt()
     var n: Int = readInt()
     var arr: Array[Int] = readLine().split(" ").map(x => x.toInt)
