@@ -3,10 +3,9 @@ package com.hackerrank.assignment.hard
 import java.io.{BufferedReader, InputStreamReader}
 
 object BangaloreBank {
-  var n = 0
+ var n = 0
   var dp = Array.ofDim[Int](10005, 10, 10)
-  var arr: Array[Int] = null
-
+  var arr:Array[Int] = null
   def main(args: Array[String]) {
     val rd = new BufferedReader(new InputStreamReader(System.in))
     n = rd.readLine().toInt
@@ -24,19 +23,15 @@ object BangaloreBank {
     }
     println(ans + n)
   }
-
-  //finding the distance between two key
   def getDistance(a: Int, b: Int): Int = {
     var aa = if (a == 0) 10 else a
     var bb = if (b == 0) 10 else b
     math.abs(aa - bb)
   }
-
-  //creating the DP table
-  def solve(k: Int, x: Int, y: Int): Int = {
+  def solve(k:Int, x: Int, y: Int):Int = {
     if (k == n) return 0
     if (dp(k)(x)(y) != -1) return dp(k)(x)(y);
-    dp(k)(x)(y) = math.min(solve(k + 1, arr(k), y) + getDistance(x, arr(k)), solve(k + 1, x, arr(k)) + getDistance(y, arr(k)))
+    dp(k)(x)(y) = math.min(solve(k+1, arr(k), y) + getDistance(x, arr(k)), solve(k+1, x, arr(k)) + getDistance(y, arr(k)))
     dp(k)(x)(y)
   }
 }
