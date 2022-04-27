@@ -1,29 +1,34 @@
 package com.hackerrank.assignment.medium
 
 import scala.math.pow
-import scala.util.control.Breaks.{break, breakable}
+import scala.util.control.Breaks._
+import scala.io.StdIn.readInt
+import scala.collection.mutable.ListBuffer
 
 object CaptainPrime {
-  def main(args: Array[String]): Unit = {
-    var list = List(43, 23, 66, 29) //3137, 1367, 2333, 101, 12
-    // 43, 23, 66,29
-    var isPrime = getPrimeNumbers(3167)
-    for (i <- list) {
-      println(getPosition(i, isPrime))
+def main(args: Array[String]): Unit = {
+    var T = readInt()
+    var list = new ListBuffer[Int]()
+    for(i <- 0 until T){
+        val id = readInt()
+        list.append(id)
+    }
+    var isPrime = getPrimeNumbers(list.max)
+    for(i<-list){
+      println(getPosition(i,isPrime))
     }
   }
 
-  //getting the persion's position
   def getPosition(num: Int, isPrime: Array[Boolean]): String = {
     var numLeft: Int = num
     var numRight: Int = num
     var isPositionRight: Boolean = true
     var isPositionLeft: Boolean = true
-    if (num.toString.contains('0')) "DEAD"
+    if(num.toString.contains('0')) "DEAD"
     else {
       breakable {
         while (numRight > 0) {
-          if (!isPrime(numRight)) {
+          if (!isPrime(numRight) || numRight == 1) {
             isPositionRight = false
             break
           }
@@ -31,10 +36,10 @@ object CaptainPrime {
         }
       }
       var mod: Int = pow(10, num.toString.length).toInt
-      //      println("mod = " + mod)
+//      println("mod = " + mod)
       breakable {
         while (numLeft > 0) {
-          if (!isPrime(numLeft)) {
+          if (!isPrime(numLeft) || numLeft == 1) {
             isPositionLeft = false
             break
           }
@@ -51,9 +56,9 @@ object CaptainPrime {
   }
 
 
-  //getting all the prime numbers
   def getPrimeNumbers(num: Int): Array[Boolean] = {
     var isPrime: Array[Boolean] = Array.fill(num + 1)(true)
+    isPrime(1) = false
     for (i <- 2 to num; if i * i <= num) {
       if (isPrime(i)) {
         var j = 2 * i
