@@ -5,7 +5,6 @@ object ListReplication {
     println(f(3, Array(1, 2, 3, 4, 5)).mkString(","))
   }
 
-  def f(num: Int, arr: Array[Int]): List[Int] = {
-    arr.flatMap(List.fill(num)(_)).toList
-  }
+  //This function only have to run in Hacker Rank editor
+def f(num:Int,arr:List[Int]):List[Int] = arr.flatMap(List.fill(num)(_)).toList
 }
