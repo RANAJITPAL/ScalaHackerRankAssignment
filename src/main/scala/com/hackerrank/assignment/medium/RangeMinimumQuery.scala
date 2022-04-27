@@ -8,7 +8,7 @@ object RangeMinimumQuery {
 //    var arr = List(10 ,20, 30, 40, 11, 22, 33, 44, 15, 5)
 //    var query = List((0,5),(1,2),(8,9),(0,9),(4,6))
 var input1 = readLine().split(" ")
-    var len = input1(0)
+    //var len = input1(0)
     var q = input1(1).toInt
     var arr = readLine().split(" ").map(x => x.toInt)
     var query = new ListBuffer[(Int,Int)]();
