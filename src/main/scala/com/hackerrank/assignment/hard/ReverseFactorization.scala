@@ -16,14 +16,14 @@ object ReverseFactorization {
   }
   
   def fun(arr:Array[Int],num:Int):String={
-    var required_num: Int = num
-    var output_list: List[Int] = List(num)
+    var target: Int = num
+    var result: List[Int] = List(num)
     var index: Int = 0
-    while (index <= arr.length - 1 && required_num > 1)
+    while (index <= arr.length - 1 && target > 1)
     {
-      if (required_num % arr(index) == 0) {
-        required_num = required_num / arr(index)
-        output_list = required_num :: output_list
+      if (target % arr(index) == 0) {
+        target = target / arr(index)
+        result = target :: result
       }
       else
       {
@@ -31,8 +31,8 @@ object ReverseFactorization {
       }
 
     }
-    if (required_num == 1)
-      output_list.mkString(" ")
+    if (target == 1)
+      result.mkString(" ")
     else
       "-1"
   }
