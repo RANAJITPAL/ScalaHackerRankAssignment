@@ -11,43 +11,29 @@ object ReverseFactorization {
     var num: Int = input(0).toInt
     var n: Int = input(1).toInt
     var arr: Array[Int] = readLine().split(" ").map(x => x.toInt)
-
-   var dp: Array[Int] = Array.fill(num + 1)(Int.MaxValue)
-    var result: Array[Int] = new Array[Int](num + 1)
-
-    dp(1) = 0
-
-    for (i <- 2 to num) {
-      var min: Int = Int.MaxValue
-      var prev: Int = Int.MaxValue
-      for (x <- arr) {
-        if (i % x == 0) {
-          if (dp(i / x) <= min) {
-            min = dp(i / x)
-            if(prev > i / x){
-              prev = i / x
-            }
-          }
-        }
+    arr = arr.sorted.reverse;
+    println(fun(arr,num))
+  }
+  
+  def fun(arr:Array[Int],num:Int):String={
+    var required_num: Int = num
+    var output_list: List[Int] = List(num)
+    var index: Int = 0
+    while (index <= arr.length - 1 && required_num > 1)
+    {
+      if (required_num % arr(index) == 0) {
+        required_num = required_num / arr(index)
+        output_list = required_num :: output_list
       }
-      result(i) = prev
-      if(min != Int.MaxValue)
-      dp(i) = min+1
-    }
+      else
+      {
+        index = index + 1
+      }
 
-//    println(dp.mkString(" "))
-//    println(result.mkString(" "))
-
-    if(dp(num) == Int.MaxValue) println(-1)
-    else {
-      val r = new ListBuffer[Int]
-      do{
-//        print(num+" ")
-        r += num
-        num = result(num)
-      }while(num>=1)
-      println(r.reverse.mkString(" "))
     }
-    
+    if (required_num == 1)
+      output_list.mkString(" ")
+    else
+      "-1"
   }
 }
